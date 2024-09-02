@@ -1,5 +1,6 @@
 const express = require("express")
 const cep_endereco = require("./middlewares/cep_endereco.js")
+const usuario_route = require("./routes/usuario.js")
 const app = express()
 const port = 5600
 
@@ -23,8 +24,7 @@ app.get("/agenda", (req, res) => {
     res.json()
 })
 
-
-
+app.use("/usuario", usuario_route)
 
 app.listen(port, () => {
     console.log("Server is running in " + port + " port")
